@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                  Int     @id @default(autoincrement())
+  userid              Int
+  outline_keys        String
+  is_bot              Boolean
+  first_name          String
+  username            String?
+  language_code       String?
+  time_stop           BigInt
+  create_time         BigInt
+  test_period_is_over Boolean
+  user_status         String
+}
+
+model VpnLocation {
+  id        Int     @id @default(autoincrement())
+  country   String
+  url_api   String
+  type_vpn  String
+  active    Boolean
+  len_vpn   Int
+  limit_npm Int
+}
